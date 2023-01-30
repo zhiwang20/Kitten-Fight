@@ -179,7 +179,7 @@ class Character(pygame.sprite.Sprite):
 			# as if you're some kind of twat who spams attacks
 			if(fight == "punch"):
 				#Sound only takes wav files and ogg files
-				pygame.mixer.Sound("../Cassie/assets/punch.wav").play()
+				pygame.mixer.Sound("./assets/punch.wav").play()
 				if(self.facing == "left"):
 					self.frames = self.punchFramesL
 				if(self.facing == "right"):
@@ -188,7 +188,7 @@ class Character(pygame.sprite.Sprite):
 					self.hit(opponent, 5, 30, 500)
 			if(fight == "kick"):
 				#Yeah don't try to play mp4 files
-				pygame.mixer.Sound("../Cassie/assets/kick.wav").play()
+				pygame.mixer.Sound("./assets/kick.wav").play()
 				if(self.facing == "left"):
 					self.frames = self.kickFramesL
 				if(self.facing == "right"):
@@ -202,7 +202,7 @@ class Character(pygame.sprite.Sprite):
 		if(self.energyRate >= 10 and keyPressed[pygame.K_j]):
 			'''We need to save the position so that way, when we call the self.rect function
 			the cat won't teleport to the top right of the screen as the self.rect resets the position.'''
-			pygame.mixer.Sound("../Cassie/assets/hadouken.wav").play()
+			pygame.mixer.Sound("./assets/hadouken.wav").play()
 			savePosX = self.rect.x
 			savePosY = self.rect.y
 			self.laser = True
@@ -232,7 +232,7 @@ class Character(pygame.sprite.Sprite):
 		if(self.energyRate >= 10 and keyPressed[pygame.K_KP7]):
 			## We need to save the position so that way, when we call the self.rect function
 			## it won't go to the top right of the screen
-			pygame.mixer.Sound("../Cassie/assets/hadouken.wav").play()
+			pygame.mixer.Sound("./assets/hadouken.wav").play()
 			savePosX = self.rect.x
 			savePosY = self.rect.y
 			self.laser = True

@@ -1,5 +1,5 @@
 import character
-import shittyBackground
+import gameBackground
 import ko
 import pygame
 import os, sys
@@ -25,7 +25,7 @@ class Controller:
 		self.weCheckedHighScore = False
 		'''Loads our AMAZING, NOT SHIT backgrounds'''
 		self.background = pygame.Surface(self.screen.get_size()).convert()
-		self.backgroundImage = shittyBackground.fuckingBackground("Epic-Sunset.png", [0,0], (width, height))
+		self.backgroundImage = gameBackground.Background("Epic-Sunset.png", [0,0], (width, height))
 
 		'''This loads the KO animation we'll play later and groups it with itself so we can draw it later.'''
 		self.KO = ko.KO("KOspritesheet.png")
@@ -67,7 +67,6 @@ class Controller:
 		self.gameOver = False
 		self.screen.fill((0,0,0))
 		#pygame.mixer.init() #this line added only for inside ubuntu?
-		#pygame.mixer.music.load("../Kitten-Fight-master/assets/tekken.mp3") #similar for bottom two
 		pygame.mixer.music.load("./assets/tekken.mp3")
 		pygame.mixer.music.set_volume(.5)
 		pygame.mixer.music.play(-1)
@@ -149,7 +148,7 @@ class Controller:
 	'''This is where the main game occurs. This is where we get all of our badass action. Also, new music'''	
 	def mainLoop(self):
 		pygame.mixer.music.stop()
-		pygame.mixer.Sound("assets/backgroundspy.wav").play()
+		pygame.mixer.Sound("./assets/backgroundspy.wav").play()
 		self.gameOn = True
 		pygame.key.set_repeat(1, 1)
 		while self.gameOn == True:
@@ -235,7 +234,7 @@ class Controller:
 				self.KO.update()
 				print(self.KO.index)
 				print(len(self.KO.anim.frames))
-				pygame.mixer.Sound("assets/KO.wav").play()
+				pygame.mixer.Sound("./assets/KO.wav").play()
 				if self.KO.index  >= len(self.KO.anim.frames)-1:
 					pygame.time.delay(2000)
 					self.endScreen = True
